@@ -1,7 +1,6 @@
 package net.galluzzo.presentations.spock.service;
 
 import net.galluzzo.presentations.spock.dto.StatusDto;
-import net.galluzzo.presentations.spock.dto.WarpDriveDto;
 
 public class StatusService {
     private WarpDrive warpDrive;
@@ -13,9 +12,6 @@ public class StatusService {
     }
 
     public StatusDto reportStatus() {
-        var warpFactor = warpDrive.getWarpFactor();
-        return new StatusDto(
-                new WarpDriveDto(warpFactor, Math.pow(warpFactor, 3.0)),
-                (int) Math.round(shieldService.shieldFractionRemaining() * 100.0));
+        return null;
     }
 }
