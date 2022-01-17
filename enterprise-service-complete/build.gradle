@@ -1,0 +1,32 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'groovy'
+    id 'java'
+}
+
+group = 'net.galluzzo.presentations'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation platform('org.spockframework:spock-bom:2.0-groovy-3.0')
+    testImplementation 'org.spockframework:spock-core'
+    testImplementation 'org.spockframework:spock-spring'
+    testImplementation 'org.hamcrest:hamcrest-core:2.2'  // allows using Hamcrest matchers
+    testRuntimeOnly 'net.bytebuddy:byte-buddy:1.12.6' // allows mocking of classes (not just interfaces)
+    testRuntimeOnly 'org.objenesis:objenesis:3.2'     // allows mocking of classes w/o default constructor (w/ByteBuddy or CGLIB)
+    testImplementation 'org.codehaus.groovy:groovy-all:3.0.9'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
